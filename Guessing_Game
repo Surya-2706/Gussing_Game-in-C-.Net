@@ -1,0 +1,73 @@
+using System;
+
+namespace myApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+
+            AppInfo();
+            
+            Console.WriteLine("\t\t\tWelcome to Gussing Game");
+
+            Console.WriteLine(" ");
+
+            Random rand = new Random();
+
+            int CorrectNumber= rand.Next(1,10);
+
+            Console.WriteLine("\t\t\tFind the number form 1-10");
+            int Guess = 0;
+            
+            while (Guess != CorrectNumber)
+            {
+                string input = Console.ReadLine();
+
+                Guess = Int32.Parse(input);
+
+                if (Guess != CorrectNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Red,"\tWRONG GUSSES! PLEASE TRY AGIN");
+
+                
+                }
+            if(Guess > CorrectNumber){
+                PrintColorMessage(ConsoleColor.Yellow,"\tYOUR GUESS IS TO HIGH");
+
+            }else if (Guess <CorrectNumber)
+            {
+                 PrintColorMessage(ConsoleColor.Yellow,"\tYOUR GUESS IS TO LOW");
+            }
+            }
+            PrintColorMessage(ConsoleColor.Yellow,"\tYOUR FIND THE SERECT NUMBER -->"+CorrectNumber);
+            Console.WriteLine("Press Any Key to Exit");
+            Console.ReadKey();
+            
+
+            
+        }
+
+        static void PrintColorMessage(ConsoleColor color,string message){
+            Console.ForegroundColor= color;
+
+            Console.WriteLine(message);
+            
+            Console.ResetColor();
+        }
+        static void AppInfo(){
+            string AutherName = "Surya";
+            string Title = "Guessing_Game";
+            string version = "1.0.0";
+
+
+            Console.ForegroundColor= ConsoleColor.Green;
+
+            Console.WriteLine(Title + " "+AutherName+" VERSION:"+version);
+            
+            Console.ResetColor();
+
+        }
+    }
+}
